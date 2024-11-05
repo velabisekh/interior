@@ -761,10 +761,6 @@ button:hover {
         width: calc(80% - 1rem);
     }
 
-    .interior-items h2 {
-        font-size: 2.5rem;
-    }
-
     .interior-list .swiper-slide {
         flex-direction: column;
         width: 40%;
