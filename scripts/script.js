@@ -78,9 +78,9 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
     var enquiryType = document.getElementById('enquiry-type').value;
 
     // Make sure to replace this with your actual phone number in the right format
-    var phoneNumber = '7200751812'; // without '+' or '0' before your number
+    var phoneNumber = 'whatsappnumber'; // without '+' or '0' before your number
 
-    var whatsappURL = `https://wa.me/${7200751812}?text=Name:%20${encodeURIComponent(name)}%0APhone:%20${encodeURIComponent(phone)}%0AMessage:%20${encodeURIComponent(message)}%0AEnquiry%20Type:%20${encodeURIComponent(enquiryType)}`;
+    var whatsappURL = `https://wa.me/${phoneNumber}?text=Name:%20${encodeURIComponent(name)}%0APhone:%20${encodeURIComponent(phone)}%0AMessage:%20${encodeURIComponent(message)}%0AEnquiry%20Type:%20${encodeURIComponent(enquiryType)}`;
 
     window.open(whatsappURL, '_blank');
 });
