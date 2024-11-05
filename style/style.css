@@ -135,7 +135,7 @@ nav {
     background-size: cover;
     background-position: center;
     position: relative;
-    min-width: 100%; /* Ensures full-width slide without expanding beyond screen */
+    min-width: 100%;
 }
 
 .slide-content {
@@ -251,15 +251,15 @@ button:hover {
 }
 
 .interior-items {
-    padding: 40px 20px;
+    padding: 30px 20px;
     background-color: #fbba72;
     text-align: center;
 }
 
 .interior-items h2 {
     margin-bottom: 20px;
-    font-size: 2rem;
-    color: #691e06;
+    margin-left: 12px;
+    text-align: start;
 }
 
 .swiper-container.interior-swiper {
@@ -295,6 +295,7 @@ button:hover {
     margin-top: 10px;
     font-size: 1.1rem;
     color: #38040e;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -692,7 +693,7 @@ button:hover {
     }
 
     .interior-items h2 {
-        font-size: 3rem;
+        font-size: 1.5rem;
     }
 
     .interior-list .swiper-slide {

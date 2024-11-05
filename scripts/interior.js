@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         spaceBetween: 20,
         loop: true, // Enable looping for continuous navigation
         autoplay: {
-            delay: 3000, // Auto-pagination delay in milliseconds
+            delay: 10000, // Auto-pagination delay in milliseconds
             disableOnInteraction: false, // Continue autoplay even after user interaction
         },
         navigation: {
