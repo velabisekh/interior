@@ -11,27 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Initialize Swiper for interior items
-document.addEventListener("DOMContentLoaded", function () {
-    // Initialize Swiper for Interior Designs
-    const interiorSwiper = new Swiper(".interior-swiper", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        navigation: {
-            nextEl: ".interior-next",
-            prevEl: ".interior-prev",
-        },
-        pagination: {
-            el: ".interior-pagination",
-            clickable: true,
-        },
-        allowTouchMove: false, // Disable swipe functionality for navigation-only control
-    });
-});
-
-
-
-
 // toggling menu and search bar
 function toggleMenu() {
     document.getElementById("nav-links").classList.toggle("active");
@@ -55,18 +34,40 @@ function toggleSearch() {
     document.getElementById("search-icon").style.display = "none";
 }
 
-
-
-// Function to search for products
 function searchProduct() {
     const query = document.getElementById('search-input').value.toLowerCase();
     const productItems = document.querySelectorAll('.product-item');
+    let found = false;
 
+    // Check each product name to see if it matches the search query
     productItems.forEach(item => {
         const productName = item.querySelector('p').innerText.toLowerCase();
-        item.style.display = productName.includes(query) ? 'block' : 'none';
+        if (productName.includes(query)) {
+            item.style.display = 'block';
+            found = true;
+        } else {
+            item.style.display = 'none';
+        }
     });
+
+    const alert = document.getElementById('no-results-alert');
+    if (!found) {
+        // Show the alert message if no results are found
+        alert.style.display = 'block';
+        
+        // Hide the alert after 3 seconds and reset all products to be visible
+        setTimeout(() => {
+            alert.style.display = 'none';
+            productItems.forEach(item => {
+                item.style.display = 'block';
+            });
+        }, 3000);
+    } else {
+        // Hide alert if results are found
+        alert.style.display = 'none';
+    }
 }
+
 
 // Form submission with WhatsApp integration
 document.getElementById('whatsappForm').addEventListener('submit', function (e) {
@@ -84,3 +85,7 @@ document.getElementById('whatsappForm').addEventListener('submit', function (e) 
 
     window.open(whatsappURL, '_blank');
 });
+
+
+// Set the current year in the footer
+document.getElementById('current-year').textContent = new Date().getFullYear();

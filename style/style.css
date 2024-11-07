@@ -39,7 +39,7 @@ body {
 }
 
 .logo img {
-    height: 90px;
+    height: 80px;
 }
 
 nav {
@@ -112,6 +112,33 @@ nav {
     transform: scale(1.05);
 }
 
+/* Alert Styling */
+.no-results-alert {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 20px;
+    background-color: #780116;
+    color: #f7b538;
+    border: 2px solid #db7c26;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fade-in-out 3s ease forwards;
+}
+
+/* Keyframes for Alert Animation */
+@keyframes fade-in-out {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
 /* Hero Section */
 .hero {
     width: 100%;
@@ -129,21 +156,31 @@ nav {
 }
 
 .swiper-slide {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-    background-position: center;
-    position: relative;
     min-width: 100%;
 }
 
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
 .slide-content {
+    position: relative;
     text-align: center;
     max-width: 600px;
     margin: 25% auto;
     padding: 20px;
     color: white;
+    z-index: 1;
 }
 
 .swiper-slide h2 {
@@ -167,6 +204,8 @@ nav {
     background-color: #bb4d00;
     transform: scale(1.05);
 }
+
+/* Product section */
 
 .products {
     padding: 2rem;
@@ -251,13 +290,13 @@ button:hover {
 }
 
 .interior-items {
-    padding: 30px 20px;
+    padding: 1.5rem;
     background-color: #fbba72;
     text-align: center;
 }
 
 .interior-items h2 {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     margin-left: 12px;
     text-align: start;
 }
@@ -286,7 +325,7 @@ button:hover {
 
 .interior-list img {
     width: 100%;
-    height: 600px;
+    height: 500px;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -377,7 +416,8 @@ button:hover {
 
 .contact-container {
     display: flex;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .contact-form {
@@ -387,6 +427,7 @@ button:hover {
 
 .contact-form h1 {
     margin-bottom: 20px;
+    margin-left: -10%;
 }
 
 .contact-form label {
@@ -398,7 +439,7 @@ button:hover {
 .contact-form textarea,
 .contact-form select {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -408,16 +449,21 @@ button:hover {
 }
 
 .contact-form button {
-    background-color: #bb4d00;
-    color: white;
-    padding: 10px 15px;
+    background-color: #780116;
+    color: #fbba72;
+    font-size: large;
+    font-weight: 600;
+    padding: 15px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 36%;
+    width: 30%;
 }
 
 .contact-form button:hover {
-    background-color: #8f250c;
+    background-color: #c32f27;
+    color: #fff;
 }
 
 
@@ -450,7 +496,7 @@ button:hover {
 .footer-social-links h3 {
     font-size: 18px;
     margin-bottom: 10px;
-    color: #38040e;
+    color: #780116;
 }
 
 .footer-info h3,
@@ -492,113 +538,8 @@ button:hover {
 }
 
 
-/* ipad Styles (max-width: 1024px) */
-
+/* iPad Styles (max-width: 1024px) */
 @media (max-width: 1024px) {
-    .container {
-        padding: 10px;
-    }
-
-    .logo img {
-        height: 90px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    #menu-bars, #search-icon {
-        display: inline-flex;
-        gap: 0.5rem;
-    }
-
-    .icons .fas {
-        display: inline; /* Show icons on tablet and mobile */
-    }
-
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        background-color: #8f250c;
-        align-items: baseline;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        padding: 1rem;
-        gap: 1rem;
-        border-radius: 0 0 5px 5px;
-        z-index: 100;
-    }
-
-    .search-bar {
-        display: none;
-    }
-
-    .search-bar.active {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0.5rem;
-        background-color: #8f250c;
-        border-radius: 5px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 100;
-    }
-
-    #close-icon.active {
-        display: block;
-        font-size: 24px;
-        color: #ca5310;
-        position: absolute;
-        top: 50%;
-        right: 1rem;
-        transform: translateY(-50%);
-        cursor: pointer;
-    }
-    
-    .swiper-container {
-        height: 600px;
-        min-width: 100%;
-        background-size: cover;
-        background-position: center;
-        object-fit: cover;
-    }
-
-    .slide-content{ 
-        margin: 30% 25%;
-    }
-
-    .swiper-slide h2 {
-        font-size: 24px;
-    }
-
-    .product-item {
-        width: calc(60% - 1rem);
-    }
-
-    .product-list {
-        justify-content: center; 
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        text-align: start;
-    }
-
-    .footer-info,
-    .footer-social-links {
-        text-align: start;
-    }
-}
-
-
-/* Tablet and Mobile Styles (max-width: 768px) */
-@media (max-width: 768px) {
-
     .container {
         padding: 10px;
     }
@@ -663,37 +604,22 @@ button:hover {
         transform: translateY(-50%);
         cursor: pointer;
     }
-    
+
     .swiper-container {
         height: 600px;
-        min-width: 100%;
-        background-size: cover;
-        background-position: center;
-        object-fit: cover;
     }
 
-    .slide-content{ 
-        margin: 40% 20%;
+    .slide-content {
+        margin: 30% 20%;
     }
 
-    .swiper-slide h2 {
-        font-size: 24px;
-    }
-
-    .product-item {
-        width: calc(60% - 1rem);
-    }
-
-    .product-list {
-        justify-content: center; 
+    .swiper-slide h2,
+    .interior-items h2 {
+        font-size: 1.5rem;
     }
 
     .product-item {
         width: calc(50% - 1rem);
-    }
-
-    .interior-items h2 {
-        font-size: 1.5rem;
     }
 
     .interior-list .swiper-slide {
@@ -704,6 +630,7 @@ button:hover {
     .modal-content {
         max-width: 600px;
     }
+
     .footer-content {
         flex-direction: column;
         text-align: start;
@@ -715,6 +642,69 @@ button:hover {
     }
 }
 
+/* Tablet and Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    /* Nav bar settings */
+    .nav-links {
+        display: none;
+    }
+
+    #menu-bars, #search-icon {
+        display: inline-flex;
+        gap: 0.5rem;
+    }
+
+    .icons .fas {
+        display: inline;
+    }
+
+    .nav-links.active,
+    .search-bar.active {
+        display: flex;
+        flex-direction: column;
+        background-color: #8f250c;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 5px;
+        z-index: 100;
+    }
+
+    #close-icon.active {
+        display: block;
+        font-size: 24px;
+        color: #ca5310;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .swiper-container {
+        height: 600px;
+    }
+
+    .slide-content {
+        margin: 40% 20%;
+    }
+
+    .product-item {
+        width: calc(50% - 1rem);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: start;
+    }
+}
 
 /* Mobile Styles (max-width: 480px) */
 @media (max-width: 480px) {
@@ -736,40 +726,25 @@ button:hover {
         width: calc(100% - 1rem);
     }
 
-    .product-list {
-        justify-content: center;
-    }
-
     .swiper-container {
         height: 500px;
-        min-width: 100%;
-        align-items: center;
-        background-size: cover;
-        background-position: center;
-        object-fit: fill;
     }
 
-    .slide-content{
-        margin: 50% 0;
+    .slide-content {
+        margin: 50% 10%;
     }
 
     .swiper-slide h2 {
         font-size: 18px;
     }
 
-    .product-item {
-        width: calc(80% - 1rem);
+    .btn {
+        padding: 5px 10px;
     }
 
     .interior-list .swiper-slide {
-        flex-direction: column;
         width: 40%;
         max-width: 280px;
-    }
-
-    .interior-swiper .swiper-button-prev,
-    .interior-swiper .swiper-button-next {
-        font-size: 2rem;
     }
 
     .footer-info h3,
